@@ -5,7 +5,7 @@
   <div>
     <TabMenu :model="items" />
   </div>
-  <router-view />
+ <router-view />
 </template>
 
 <script>
@@ -24,7 +24,6 @@ export default {
 
 <style>
 body {
-  background-image: url('bg.jpg');
   background-repeat: no-repeat;
   background-position: left top;
   background-attachment: fixed;
