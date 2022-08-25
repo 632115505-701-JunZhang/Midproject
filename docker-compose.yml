@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+    web:
+        image: "20001215/se331-project1:latest"
+        ports:
+            - 8001:80
