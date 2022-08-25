@@ -4,8 +4,6 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-
-
 import 'nprogress/nprogress.css'
 import PrimeVue from 'primevue/config'
 import Button from 'primevue/button'
@@ -19,7 +17,6 @@ import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 
 createApp(App)
-
     .use(router, PrimeVue)
     .component('Button', Button)
     .component('TabMenu', TabMenu)
@@ -27,5 +24,7 @@ createApp(App)
     .component('Fieldset', Fieldset)
     .provide('Store', store)
     .mount("#app");
+
+
 
 
