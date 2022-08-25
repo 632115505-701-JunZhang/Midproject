@@ -55,36 +55,36 @@
 </template>
 <script>
 export default {
-  props: ['patients'],
-  inject: ['Store'],
+  props: ["patients"],
+  inject: ["Store"],
   data() {
     return {
       // eslint-disable-next-line no-unused-vars
-      comments: []
-    }
+      comments: [],
+    };
   },
   methods: {
     addComment() {
       if (this.author && this.content) {
-        this.comments.push({ author: this.author, content: this.content })
+        this.comments.push({ author: this.author, content: this.content });
       } else {
-        alert('Fields Empty')
+        alert("Fields Empty");
       }
-      this.Store.flashMessage = 'Your comment is successfully posted'
+      this.Store.flashMessage = "Your comment is successfully posted";
       setTimeout(() => {
-        this.Store.flashMessage = ''
-      }, 3000)
+        this.Store.flashMessage = "";
+      }, 3000);
       this.$router.push({
-        name: 'DocterComment',
-        params: { id: this.patients.id }
-      })
+        name: "DocterComment",
+        params: { id: this.patients.id },
+      });
     },
 
     removeComment(index) {
-      this.comments.filter(index)
-    }
-  }
-}
+      this.comments.filter(index);
+    },
+  },
+};
 </script>
 <style scoped>
 * {

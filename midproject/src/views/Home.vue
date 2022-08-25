@@ -45,55 +45,55 @@
 </template>
 
 <script>
-import DatabaseService from '@/services/DatabaseService.js'
-import PatientCard from '../components/PatientCard.vue'
+import DatabaseService from "@/services/DatabaseService.js";
+import PatientCard from "../components/PatientCard.vue";
 
 export default {
   components: { PatientCard },
-  name: 'PatientList',
+  name: "PatientList",
   props: {
     page: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       patients: null,
-      totalEvents: 0
-    }
+      totalEvents: 0,
+    };
   },
   // eslint-disable-next-line no-unused-vars
   beforeRouteEnter(routeTo, routeFrom, next) {
     DatabaseService.getPatients(9, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
-          comp.patients = response.data
-          comp.totalEvents = response.headers['x-total-count']
-        })
+          comp.patients = response.data;
+          comp.totalEvents = response.headers["x-total-count"];
+        });
       })
       .catch(() => {
-        next({ name: 'NetworkError' })
-      })
+        next({ name: "NetworkError" });
+      });
   },
   beforeRouteUpdate(routeTo, routeFrom, next) {
     DatabaseService.getPatients(9, parseInt(routeTo.query.page) || 1)
       .then((response) => {
-        this.patients = response.data
-        this.totalEvents = response.headers['x-total-count']
-        next()
+        this.patients = response.data;
+        this.totalEvents = response.headers["x-total-count"];
+        next();
       })
       .catch(() => {
-        next({ name: 'NetworkError' })
-      })
+        next({ name: "NetworkError" });
+      });
   },
   computed: {
     hasNextPage() {
-      let totalPages = Math.ceil(this.totalEvents / 9)
-      return this.page < totalPages
-    }
-  }
-}
+      let totalPages = Math.ceil(this.totalEvents / 9);
+      return this.page < totalPages;
+    },
+  },
+};
 </script>
 
 <style scoped>

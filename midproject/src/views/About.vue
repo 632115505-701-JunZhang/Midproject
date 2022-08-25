@@ -4,7 +4,7 @@
       <Fieldset legend="About">
         <div class="text">
           <h1>953331</h1>
-          <h1>Component-Based Software Develoment</h1>
+          <h1>Component-Based Software Develoment Midterm Project</h1>
           <p>622115507 Jiang Tao</p>
           <p>622115504 HAIZHAO LI</p>
           <p>632115505 ZHANG JUN</p>
@@ -17,8 +17,8 @@
 
 <script>
 export default {
-  props: ['patients']
-}
+  props: ["patients"],
+};
 </script>
 
 <style>

@@ -20,8 +20,8 @@
 
 <script>
 export default {
-  props: ['patients']
-}
+  props: ["patients"],
+};
 </script>
 
 <style>

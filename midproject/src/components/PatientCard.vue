@@ -23,14 +23,14 @@
 
 <script>
 export default {
-  name: 'PatientCard',
+  name: "PatientCard",
   props: {
     patient: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

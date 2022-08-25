@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import VaccineComp from '@/components/VaccineComp.vue'
+import VaccineComp from "@/components/VaccineComp.vue";
 
 export default {
   components: { VaccineComp },
-  name: 'VacList',
-  props: ['patients']
-}
+  name: "VacList",
+  props: ["patients"],
+};
 </script>
 
 <style scoped>

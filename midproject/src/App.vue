@@ -5,21 +5,21 @@
   <div>
     <TabMenu :model="items" />
   </div>
- <router-view />
+  <router-view />
 </template>
 
 <script>
 export default {
-  inject: ['Store'],
+  inject: ["Store"],
   data() {
     return {
       items: [
-        { label: 'Home', icon: 'pi pi-fw pi-home', to: '/' },
-        { label: 'About', icon: 'pi pi-fw pi-file', to: '/about' }
-      ]
-    }
-  }
-}
+        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        { label: "About", icon: "pi pi-fw pi-file", to: "/about" },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
