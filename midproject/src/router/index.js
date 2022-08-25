@@ -5,7 +5,7 @@ import DoctorComment from "@/views/Event/DoctorComment.vue";
 import Details from "@/views/Event/Details.vue";
 import EventLayout from "@/views/Event/Layout.vue";
 import NotFound from "../views/NotFound.vue";
-import NetworkError from "../views/networkerror.vue";
+import NetworkError from "../views/NetworkError.vue";
 import DatabaseService from "../services/DatabaseService.js";
 import Store from "@/store";
 import NProgress from "nprogress";
