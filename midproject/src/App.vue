@@ -1,12 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div id="flashMessage" v-if="Store.flashMessage">
+    {{ Store.flashMessage }}
+  </div>
+  <div>
+    <TabMenu :model="items" />
+  </div>
   <router-view />
 </template>
 
+<script>
+export default {
+  inject: ['Store'],
+  data() {
+    return {
+      items: [
+        { label: 'Home', icon: 'pi pi-fw pi-home', to: '/' },
+        { label: 'About', icon: 'pi pi-fw pi-file', to: '/about' }
+      ]
+    }
+  }
+}
+</script>
+
 <style>
+body {
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,16 +38,29 @@
   color: #2c3e50;
 }
 
-nav {
+#nav {
   padding: 30px;
 }
 
-nav a {
+#nav a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+#nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@keyframes fade {
+  from {
+    background: mediumaquamarine;
+  }
+  to {
+    background: transparent;
+  }
+}
+#flashMessage {
+  animation-name: fade;
+  animation-duration: 6s;
 }
 </style>
