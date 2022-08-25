@@ -1,24 +1,14 @@
-# midproject
+# SE331-2022-Project
+Group DekVen
 
-## Project setup
-```
-npm install
-```
+Members:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+632115505 JUN ZHANG
 
-### Compiles and minifies for production
-```
-npm run build
-```
+622115504 HAIZHAO LI
 
-### Lints and fixes files
-```
-npm run lint
-```
+622115507 JIANG TAO
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Application URL: http://13.76.188.219:8001/
+
+Dependencies : nprogress, primevue@3.6.0, primeflex@2.0.0, primeicons
