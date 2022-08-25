@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Vaccine from "@/views/event/Vaccine.vue";
-import DoctorComment from "@/views/event/DoctorComment.vue";
-import Details from "@/views/event/Details.vue";
-import EventLayout from "@/views/event/Layout.vue";
+import Vaccine from "@/views/Event/Vaccine.vue";
+import DoctorComment from "@/views/Event/DoctorComment.vue";
+import Details from "@/views/Event/Details.vue";
+import EventLayout from "@/views/Event/Layout.vue";
 import NotFound from "../views/NotFound.vue";
 import NetworkError from "../views/networkerror.vue";
 import DatabaseService from "../services/DatabaseService.js";
