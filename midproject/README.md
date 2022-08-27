@@ -9,7 +9,12 @@ Members:
 
 622115507 JIANG TAO  commit user name: taojiang12
 
-Application URL: http://3.95.197.144:8080/
+Application URL: http://18.208.163.146:8000/   note: if aj can't open the URL. The reason is instances auto closed.
+
+ This is firebase URL:
+
+ https://midproject1-4832b.web.app/
+
 
 
 Dependencies : nprogress, primevue@3.6.0, primeflex@2.0.0, primeicons,axios
