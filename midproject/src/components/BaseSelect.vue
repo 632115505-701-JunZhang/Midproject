@@ -1,14 +1,15 @@
 <template>
   <label v-if="label">{{ label }}</label>
 
-  <select v-if =!vaccine
+  <select
+    v-if="!vaccine"
     class="field"
     :value="modelValue"
     v-bind="{
       ...$attrs,
       onChange: ($event) => {
-        $emit('update:modelValue', $event.target.value)
-      }
+        $emit('update:modelValue', $event.target.value);
+      },
     }"
   >
     <option
@@ -21,23 +22,22 @@
     </option>
   </select>
 
-<!--  <select v-if =vaccine-->
-<!--          class="field"-->
-<!--          :value="modelValue"-->
-<!--          v-bind="{-->
-<!--      ...$attrs,-->
-<!--      onChange: ($event) => {-->
-<!--        $emit('update:modelValue', $event.target.value)-->
-<!--      }-->
-<!--    }"-->
-<!--  >-->
-<!--    <option value="Astraceneca" >Astraceneca</option>-->
-<!--    <option value="Sinovac" >Sinovac</option>-->
-<!--    <option value="Sinopharm" >Sinopharm</option>-->
-<!--    <option value="Moderna" >Moderna</option>-->
+  <!--  <select v-if =vaccine-->
+  <!--          class="field"-->
+  <!--          :value="modelValue"-->
+  <!--          v-bind="{-->
+  <!--      ...$attrs,-->
+  <!--      onChange: ($event) => {-->
+  <!--        $emit('update:modelValue', $event.target.value)-->
+  <!--      }-->
+  <!--    }"-->
+  <!--  >-->
+  <!--    <option value="Astraceneca" >Astraceneca</option>-->
+  <!--    <option value="Sinovac" >Sinovac</option>-->
+  <!--    <option value="Sinopharm" >Sinopharm</option>-->
+  <!--    <option value="Moderna" >Moderna</option>-->
 
-<!--  </select>-->
-
+  <!--  </select>-->
 </template>
 
 <script>
@@ -45,16 +45,16 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: "",
     },
     modelValue: {
       type: [String, Number, Object],
-      default: ''
+      default: "",
     },
     options: {
       type: Array,
-      required: false
-    }
-  }
-}
+      required: false,
+    },
+  },
+};
 </script>

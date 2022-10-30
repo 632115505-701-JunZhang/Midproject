@@ -7,14 +7,14 @@
 
 <script>
 export default {
-  name: 'VaccineComp',
+  name: "VaccineComp",
   props: {
     vac: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

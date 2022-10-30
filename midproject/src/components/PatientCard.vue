@@ -6,7 +6,10 @@
     <div class="patient-card">
       <div class="p-grid">
         <div class="p-col-5">
-          <img class="photo" src="https://www.img.in.th/images/dc98e9082e4cbf327401cc1a2c04ab2d.png" />
+          <img
+            class="photo"
+            src="https://www.img.in.th/images/dc98e9082e4cbf327401cc1a2c04ab2d.png"
+          />
         </div>
         <div class="p-col" id="info">
           <div id="info2">
@@ -23,14 +26,14 @@
 
 <script>
 export default {
-  name: 'PatientCard',
+  name: "PatientCard",
   props: {
     patient: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>
