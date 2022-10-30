@@ -1,14 +1,34 @@
 <template>
   <div>
     <div class="patient">
-      <h1>Patient List</h1>
-      <div class="p-grid">
-        <PatientCard
-          class="p-col-12 p-md-6 p-lg-4"
-          v-for="patient in patients"
-          :key="patient.id"
-          :patient="patient"
-        />
+      <div v-if="isAdmin">
+        <h1>Patient List</h1>
+        <div class="p-grid">
+          <PatientCard
+            class="p-col-12 p-md-6 p-lg-4"
+            v-for="patient in patients"
+            :key="patient.id"
+            :patient="patient"
+          />
+        </div>
+      </div>
+      <div v-if="isDoctor">
+        <div class="p-grid">
+          <PatientCard
+            class="p-col-12 p-md-6 p-lg-4"
+            v-for="patient in Store.currentUser.patient"
+            :key="patient.id"
+            :patient="patient"
+          />
+        </div>
+      </div>
+
+      <div v-if="isUser">
+        <h1>Welcome! user {{ Store.currentUser.name }}</h1>
+        <router-link
+          :to="{ name: 'Details', params: { id: Store.currentUser.id } }"
+          >Click here to view your profile</router-link
+        >
       </div>
     </div>
 
@@ -45,55 +65,70 @@
 </template>
 
 <script>
-import DatabaseService from "@/services/DatabaseService.js";
-import PatientCard from "../components/PatientCard.vue";
+import DatabaseService from '@/services/DatabaseService.js'
+import PatientCard from '../components/PatientCard.vue'
+import AuthService from '@/services/AuthService'
 
 export default {
+  inject: ['Store'],
   components: { PatientCard },
-  name: "PatientList",
+  name: 'PatientList',
   props: {
     page: {
       type: Number,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
       patients: null,
-      totalEvents: 0,
-    };
+      totalEvents: 0
+    }
   },
   // eslint-disable-next-line no-unused-vars
   beforeRouteEnter(routeTo, routeFrom, next) {
-    DatabaseService.getPatients(9, parseInt(routeTo.query.page) || 1)
+    DatabaseService.getPatients(6, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
-          comp.patients = response.data;
-          comp.totalEvents = response.headers["x-total-count"];
-        });
+          comp.patients = response.data
+          comp.totalEvents = response.headers['x-total-count']
+        })
       })
-      .catch(() => {
-        next({ name: "NetworkError" });
-      });
+      .catch((error) => {
+        if (error.response.status === 401) {
+          next({ name: '401Resource' })
+        } else next({ name: 'NetworkError' })
+      })
   },
   beforeRouteUpdate(routeTo, routeFrom, next) {
-    DatabaseService.getPatients(9, parseInt(routeTo.query.page) || 1)
+    DatabaseService.getPatients(6, parseInt(routeTo.query.page) || 1)
       .then((response) => {
-        this.patients = response.data;
-        this.totalEvents = response.headers["x-total-count"];
-        next();
+        this.patients = response.data
+        this.totalEvents = response.headers['x-total-count']
+        next()
       })
-      .catch(() => {
-        next({ name: "NetworkError" });
-      });
+      .catch((error) => {
+        if (error.response.status === 401) {
+          next({ name: '401Resource' })
+        } else next({ name: 'NetworkError' })
+      })
   },
   computed: {
     hasNextPage() {
-      let totalPages = Math.ceil(this.totalEvents / 9);
-      return this.page < totalPages;
+      let totalPages = Math.ceil(this.totalEvents / 6)
+      return this.page < totalPages
     },
-  },
-};
+    isAdmin() {
+      return AuthService.hasRoles('ROLE_ADMIN')
+    },
+    isDoctor() {
+      return AuthService.hasRoles('ROLE_DOCTOR')
+    },
+    isUser() {
+      return AuthService.hasRoles('ROLE_USER')
+    }
+  }
+}
 </script>
 
 <style scoped>

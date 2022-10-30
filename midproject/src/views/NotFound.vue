@@ -1,8 +1,15 @@
 <template>
   <div>
     <h1>Oopsie Daisy!</h1>
-    <h3>The {{ resource }} you're looking for is not here</h3>
-    <router-link :to="{ name: 'Home' }">Back to the home page</router-link>
+    <h3>You are not authorized to watch this page</h3>
+    <router-link :to="{ name: 'Login' }"
+      ><Button
+        label="Login"
+        class="p-button-secondary"
+        id="login"
+        font-awesome-icon
+        icon="sign-out-alt"
+    /></router-link>
   </div>
 </template>
 
@@ -12,8 +19,16 @@ export default {
     resource: {
       type: String,
       required: true,
-      default: "page",
-    },
-  },
-};
+      default: 'page'
+    }
+  }
+}
 </script>
+<style>
+#login {
+  align-content: center;
+  align-items: center;
+  padding-left: 0px;
+  padding-right: 8px;
+}
+</style>
