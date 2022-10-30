@@ -31,9 +31,9 @@
   <ul v-if="Store.currentUser">
     <tr>
       <td class="table"></td>
-      <a class="nav-link" @click="logout">
+      <a class="nave-link" @click="logout">
         <Button
-          label="LogOut"
+          lang="LogOut"
           class="p-button-secondary"
           id="logout"
           font-awesome-icon
@@ -45,49 +45,49 @@
 </template>
 
 <script>
-import AuthService from '@/services/AuthService.js'
+import AuthService from "@/services/AuthService.js";
 
 export default {
-  inject: ['Store'],
+  inject: ["Store"],
   computed: {
     currentUser() {
-      return localStorage.getItem('user')
+      return localStorage.getItem("user");
     },
     isAdmin() {
-      return AuthService.hasRoles('ROLE_ADMIN')
+      return AuthService.hasRoles("ROLE_ADMIN");
     },
     isDoctor() {
-      return AuthService.hasRoles('ROLE_DOCTOR')
+      return AuthService.hasRoles("ROLE_DOCTOR");
     },
     isUser() {
-      return AuthService.hasRoles('ROLE_USER')
-    }
+      return AuthService.hasRoles("ROLE_USER");
+    },
   },
   methods: {
     logout() {
-      AuthService.logout()
-      this.$router.go('/ ')
-    }
+      AuthService.logout();
+      this.$router.go("/ ");
+    },
   },
 
   data() {
     return {
       itemsAdmin: [
-        { label: 'Home', icon: 'pi pi-fw pi-home', to: '/' },
-        { label: 'List of User', icon: 'pi pi-fw pi-file', to: '/adminhome' },
-        { label: 'About', icon: 'pi pi-fw pi-file', to: '/about' }
+        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        { label: "List of User", icon: "pi pi-fw pi-file", to: "/adminhome" },
+        { label: "About", icon: "pi pi-fw pi-file", to: "/about" },
       ],
       itemsDoc: [
-        { label: 'Home', icon: 'pi pi-fw pi-home', to: '/' },
-        { label: 'About', icon: 'pi pi-fw pi-file', to: '/about' }
+        { label: "Home", icon: "pi pi-fw pi-home", to: "/" },
+        { label: "About", icon: "pi pi-fw pi-file", to: "/about" },
       ],
       itemsUser: [
-        { label: 'Information', icon: 'pi pi-fw pi-home', to: '/patmenu' },
-        { label: 'About', icon: 'pi pi-fw pi-file', to: '/about' }
-      ]
-    }
-  }
-}
+        { label: "Information", icon: "pi pi-fw pi-home", to: "/patmenu" },
+        { label: "About", icon: "pi pi-fw pi-file", to: "/about" },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
@@ -97,7 +97,7 @@ export default {
   align-items: center;
 }
 body {
-  background-image: url('bg.jpg');
+  background-image: url("bg.jpg");
   background-repeat: no-repeat;
   background-position: left top;
   background-attachment: fixed;

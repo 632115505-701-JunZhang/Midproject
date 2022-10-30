@@ -59,54 +59,54 @@
   </div>
 </template>
 <script>
-import { Form, Field, ErrorMessage } from 'vee-validate'
-import * as yup from 'yup'
-import DatabaseService from '@/services/DatabaseService.js'
-import AuthService from '@/services/AuthService.js'
+import { Form, Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
+import DatabaseService from "@/services/DatabaseService.js";
+import AuthService from "@/services/AuthService.js";
 export default {
-  props: ['patients', 'doctor'],
+  props: ["patients", "doctor"],
   components: {
     Form,
     Field,
-    ErrorMessage
+    ErrorMessage,
   },
   // eslint-disable-next-line
   inject: ['Store'],
   data() {
     const schema = yup.object().shape({
-      comment: yup.string()
-    })
+      comment: yup.string(),
+    });
     return {
-      message: '',
-      schema
-    }
+      message: "",
+      schema,
+    };
   },
   computed: {
     isDoctor() {
-      return AuthService.hasRoles('ROLE_DOCTOR')
-    }
+      return AuthService.hasRoles("ROLE_DOCTOR");
+    },
   },
   methods: {
     addComment(patient) {
-      this.message = ''
+      this.message = "";
       DatabaseService.saveComment(patient, this.patients.id)
         .then(() => {
-          location.reload()
+          location.reload();
         })
         .catch(() => {
-          this.message = 'could not register'
-        })
-      this.Store.flashMessage = 'Your comment is successfully posted'
+          this.message = "could not register";
+        });
+      this.Store.flashMessage = "Your comment is successfully posted";
       setTimeout(() => {
-        this.Store.flashMessage = ''
-      }, 3000)
+        this.Store.flashMessage = "";
+      }, 3000);
       this.$router.push({
-        name: 'DoctorComment',
-        params: { id: this.patients.id }
-      })
-    }
-  }
-}
+        name: "DoctorComment",
+        params: { id: this.patients.id },
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 * {

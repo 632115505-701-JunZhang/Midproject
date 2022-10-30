@@ -16,25 +16,25 @@
 </template>
 <script>
 export default {
-  inject: ['Store'],
+  inject: ["Store"],
   data() {
     return {
       items: [
-        { label: 'Details', icon: 'pi pi-fw pi-user', to: { name: 'Details' } },
+        { label: "Details", icon: "pi pi-fw pi-user", to: { name: "Details" } },
         {
-          label: 'Vaccine',
-          icon: 'pi pi-fw pi-info-circle',
-          to: { name: 'Vaccine' }
+          label: "Vaccine",
+          icon: "pi pi-fw pi-info-circle",
+          to: { name: "Vaccine" },
         },
         {
-          label: 'DoctorComment',
-          icon: 'pi pi-fw pi-user-edit',
-          to: { name: 'DoctorComment' }
-        }
-      ]
-    }
-  }
-}
+          label: "DoctorComment",
+          icon: "pi pi-fw pi-user-edit",
+          to: { name: "DoctorComment" },
+        },
+      ],
+    };
+  },
+};
 </script>
 <style scoped>
 .nav {
