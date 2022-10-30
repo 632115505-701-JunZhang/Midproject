@@ -7,14 +7,14 @@
 
 <script>
 export default {
-  name: "VaccineComp",
+  name: 'VaccineComp',
   props: {
     vac: {
       type: Object,
-      required: true,
-    },
-  },
-};
+      required: true
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -26,14 +26,12 @@ export default {
   margin: 15px;
   margin-bottom: 18px;
 }
-
 .vac-card:hover {
   transition: 0.25s;
   transform: scale(1.05);
   background-color: rgb(248, 248, 248);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
-
 td {
   margin-left: 5px;
   padding: 10px;
