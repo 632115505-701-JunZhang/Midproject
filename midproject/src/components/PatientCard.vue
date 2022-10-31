@@ -5,12 +5,12 @@
   >
     <div class="patient-card">
       <div class="p-grid">
-        <div class="p-col-5">
+        <!-- <div class="p-col-5">
           <img
             class="photo"
             src="https://www.img.in.th/images/dc98e9082e4cbf327401cc1a2c04ab2d.png"
           />
-        </div>
+        </div> -->
         <div class="p-col" id="info">
           <div id="info2">
             <h2>{{ patient.name }}</h2>

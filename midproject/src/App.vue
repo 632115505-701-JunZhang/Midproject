@@ -31,9 +31,9 @@
   <ul v-if="Store.currentUser">
     <tr>
       <td class="table"></td>
-      <a class="nave-link" @click="logout">
+      <a class="nav-link" @click="logout">
         <Button
-          lang="LogOut"
+          label="Logout"
           class="p-button-secondary"
           id="logout"
           font-awesome-icon
@@ -97,7 +97,7 @@ export default {
   align-items: center;
 }
 body {
-  background-image: url("bg.jpg");
+  /* background-image: url("bg.jpg"); */
   background-repeat: no-repeat;
   background-position: left top;
   background-attachment: fixed;
